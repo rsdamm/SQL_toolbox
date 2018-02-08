@@ -1,10 +1,11 @@
---for sample out see rows_to_columns_wo_pivot.txt
+--sample records in rows.png
+--for sample out see report.png
 select a.tag_type,
     sum(a.inapplicableCt) as inapplicablect,
-    sum(a.damagedCt)        as damagedCt,
-    sum(a.fraudCt)   as fraudCt,
+    sum(a.damagedCt)      as damagedCt,
+    sum(a.fraudCt)        as fraudCt,
     sum(a.unapprovedCt)   as unapprovedCt,
-    sum(a.pendingCt)   as pendingCt 
+    sum(a.pendingCt)      as pendingCt 
 from (select tag_type,
   case when tag_status='inapplicable' then 1 else 0 end as inapplicableCt,
   case when tag_status='damaged' then ct else 0 end as damagedCt,
